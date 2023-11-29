@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		
+		<style th:fragment="style">
+			.app-container{
+				width: 75vh;
+				margin-top: 100px;
+				margin-bottom: 100px;
+				justify-content: center;
+				align-items: center;
+			}
 	
-	<header th:fragment="header">
-		<div class="container-fluid p-0">
-			<div class="row">
-				<div class="col-2 border-bottom border-end border-black py-4">
-					Best of
-				</div>
-				<div class="col-10 border-bottom border-black d-flex align-items-center">
-					<a href="/movies" class="btn btn-sm btn-primary border border-black mx-2 px-4">Movies</a>
-					<a href="/songs" class="btn btn-sm btn-primary border border-black mx-2 px-4">Songs</a>
+			.main-text{
+				width: 500px;
+				height: 200px;
+			}
+		</style>
+		
+		<header th:fragment="header">
+			<div class="container-fluid p-0">
+				<div class="row">
+					<div class="col-2 border-bottom border-end border-black py-4">
+						Best of
+					</div>
+					<div class="col-10 border-bottom border-black d-flex align-items-center">
+						<a href="/movies" class="btn btn-sm btn-primary border border-black mx-2 px-4">Movies</a>
+						<a href="/songs" class="btn btn-sm btn-primary border border-black mx-2 px-4">Songs</a>
+					</div>
 				</div>
 			</div>
+		</header>
+		
+		<div 
+			th:fragment="homebutton(title)"
+			class="col-12 text-center mt-5"
+			>
+			<a href="/" th:text="${title}" class="btn btn-sm btn-primary border border-black mx-2 px-4"></a>
 		</div>
-	</header>
-	
-	<div 
-		th:fragment="homebutton(title)"
-		class="col-12 text-center mt-5"
-		>
-		<a href="/" th:text="${title}" class="btn btn-sm btn-primary border border-black mx-2 px-4"></a>
-	</div>
-	
-</body>
+		
+	</body>
 </html>
