@@ -22,19 +22,7 @@
 	</style>
 	<body>
 		<div class="container-fluid app-container border border-black">
-			<header>
-				<div class="container-fluid p-0">
-					<div class="row">
-						<div class="col-2 border-bottom border-end border-black py-4">
-							Best of
-						</div>
-						<div class="col-10 border-bottom border-black d-flex align-items-center">
-							<a href="/movies" class="btn btn-sm btn-primary border border-black mx-2 px-4">Movies</a>
-							<a href="/songs" class="btn btn-sm btn-primary border border-black mx-2 px-4">Songs</a>
-						</div>
-					</div>
-				</div>
-			</header>
+			<header th:replace="frags :: header"></header>
 			<main>
 				<div class="container-fluid">
 					<div class="row">
@@ -43,14 +31,10 @@
 								<div class="col-12 text-center my-3">
 									<h3>Best Movies</h3>
 								</div>
-								<div class="col-12 text-center my-3">
-									<span class="border border-black py-3 px-5">
-										Primo
-									</span>
-								</div>
-								<div class="col-12 text-center mt-5">
-									<a href="/" class="btn btn-sm btn-primary border border-black mx-2 px-4">Home</a>
-								</div>
+								<a th:each="movie : ${movies}" th:href="@{/movies/{movieId} (movieId=${movie.id})}" class="col-12 text-center border border-black text-decoration-none text-black my-3 py-4">
+									<span th:text="${movie.getTitolo()}"></span>
+								</a>
+								<div th:replace="frags :: homebutton('Home')"></div>
 							</div>
 						</div>
 					</div>
